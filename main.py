@@ -14,13 +14,9 @@ if not os.getenv("GROQ_API_KEY"):
     sys.exit(1)
 
 def get_weather(city: str) -> str:
-    """Simula el clima de una ciudad. Úsalo para saber el clima."""
     return f"El clima simulado en {city} es soleado."
 
 def buscar_informacion_empresa(tema: str) -> str:
-    """Busca información en la base de conocimiento de la empresa.
-    Úsalo para preguntas sobre: horarios, soporte técnico, ventas, recursos humanos, recuperación de contraseña, facturación.
-    """
     tema_minusculas = tema.lower()
     
     base_conocimiento = {
@@ -58,9 +54,9 @@ memoria = []
 
 def main():
     while True:
-        print("\n=====================================")
-        print("     AGENTE BÁSICO CON LANGCHAIN     ")
-        print("=====================================")
+
+        print("AGENTE BÁSICO CON LANGCHAIN")
+
         print("1. Preguntar al agente")
         print("2. Ver memoria de conversación")
         print("3. Salir")
@@ -98,14 +94,14 @@ def main():
                 print(f"\nHubo un error de conexión o ejecución: {e}")
                 
         elif opcion == "2":
-            print("\n--- MEMORIA DE CONVERSACIÓN ---")
+            print("\nMEMORIA DE CONVERSACION")
             if len(memoria) == 0:
                 print("La memoria está vacía.")
             else:
                 for idx, item in enumerate(memoria, 1):
                     print(f"\n[{idx}] Pregunta: {item['pregunta']}")
                     print(f"    Respuesta: {item['respuesta']}")
-            print("-------------------------------")
+
             
         elif opcion == "3":
             print("\nSaliendo del programa... ¡Hasta pronto!")
